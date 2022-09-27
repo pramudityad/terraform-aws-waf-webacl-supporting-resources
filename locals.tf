@@ -5,7 +5,7 @@ locals {
       enabled = true
       expiration = [
         {
-          days = var.webacl_expiration
+          days = var.webacl_traffic_log_expiration
         },
       ]
     }

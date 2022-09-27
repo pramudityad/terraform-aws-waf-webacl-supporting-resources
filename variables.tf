@@ -41,7 +41,7 @@ variable "firehose_buffer_interval" {
   default     = "900"
 }
 
-variable "extra_lifecycle_rules" {
+variable "webacl_traffic_log_additional_lifecycle" {
   type = list(object({
     id      = string,
     enabled = bool,
@@ -58,7 +58,7 @@ variable "extra_lifecycle_rules" {
   default     = []
 }
 
-variable "webacl_expiration" {
+variable "webacl_traffic_log_expiration" {
   type        = string
   description = "Web acl expiration"
   default     = 365

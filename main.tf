@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "webacl_traffic_information" {
   }
 
   dynamic "lifecycle_rule" {
-    for_each = concat(local.lifecycle_rules, var.extra_lifecycle_rules)
+    for_each = concat(local.lifecycle_rules, var.webacl_traffic_log_additional_lifecycle)
     content {
       id      = lookup(lifecycle_rule.value, "id", null)
       enabled = lookup(lifecycle_rule.value, "enabled", false)
