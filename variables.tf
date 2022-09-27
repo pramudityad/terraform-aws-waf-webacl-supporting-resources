@@ -41,3 +41,26 @@ variable "firehose_buffer_interval" {
   default     = "900"
 }
 
+variable "extra_lifecycle_rules" {
+  type = list(object({
+    id      = string,
+    enabled = bool,
+    prefix  = string,
+    transition = list(object({
+      days          = string
+      storage_class = string
+    }))
+    expiration = list(object({
+      days = string
+    }))
+  }))
+  description = "Extra lifecycle rules"
+  default     = []
+}
+
+variable "webacl_expiration" {
+  type        = string
+  description = "Web acl expiration"
+  default     = 365
+}
+
